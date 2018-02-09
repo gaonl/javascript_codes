@@ -1,2 +1,2 @@
-# visible_algorithm
-可视化算法（javascript实现）
+# javascript_codes
+javascript一些代码，并附有两个练习，一个贪食蛇，一个可视化算法！！后续会继续新增.....
