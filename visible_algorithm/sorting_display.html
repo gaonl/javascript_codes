@@ -1,0 +1,60 @@
+<html><head>
+	<script type="text/javascript" src="jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="GNLPrototype.js"></script>
+	<script type="text/javascript" src="sorting\InsertionSort.js"></script>
+	<script type="text/javascript" src="sorting\BubbleSort.js"></script>
+	<script type="text/javascript" src="sorting\SelectionSort.js"></script>
+	
+	<script type="text/javascript" src="sorting\SortingManager.js"></script>
+	
+	<script type="text/javascript">
+	function str2data(strss){
+		var strArray = strss.split(";");
+		var dataArray = [];
+		for(var i=0;i<strArray.length;i++){
+			var str = strArray[i];
+			if(str && str.trim!=""){
+				dataArray.push(parseInt(str));
+			}
+		}
+		return dataArray;
+	}
+	
+	$(document).ready(function(){
+		$("#sort").click(function(){
+			var sortType = $("input[name='sortType']:checked").val();
+			var strBefore = $("#input_random_data").val();
+			var dataArray = str2data(strBefore);
+			SortingManager.sort(dataArray,sortType);
+			var strAfter = dataArray.join(";");
+			$("#display_sort").val(strAfter);
+			alert(sortType+":"+SortingManager.compareTimes);
+		});
+	});
+	
+	</script>
+</head>
+
+<body>
+	<input id="sort_type_insertion_sort" type="radio" name="sortType" value="insertion_sort" checked="checked"/>insertion sort
+	<input id="sort_type_insertion_shell_sort" type="radio" name="sortType" value="insertion_shell_sort"/>insertion shell sort
+	</br>
+	<input id="sort_type_bubble_sort" type="radio" name="sortType" value="bubble_sort"/>bubble sort
+	<input id="sort_type_bubble_quick_sort" type="radio" name="sortType" value="bubble_quick_sort"/>bubble quick sort
+	</br>
+	<input id="sort_type_selection_sort" type="radio" name="sortType" value="selection_sort"/>selection sort
+	
+	</br>
+	before sort:
+	<br>
+	<input id="input_random_data" type="text" style="width:700px;">
+	<br>
+	after sort:
+	<br>
+	<input id="display_sort" type="text" style="width:700px;">
+	<br>
+	<input id="sort" type="button" value="sort">
+
+
+
+</body></html>

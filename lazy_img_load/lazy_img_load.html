@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="jquery-1.12.0.js"></script>
+	<!--<script type="text/javascript" src="http://www.hlmblog.com/wp-content/themes/minty/js/jquery.scrollLoading.js"></script>-->
+	<script type="text/javascript" src="scroll.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".img-lazyload").scrollLoading({"timeLazy":300}); 
+		});
+	</script>
+<head>
+<body>
+	<img style1="height:491px;" src="loading.gif" data-url="a.jpg" class="img-lazyload" /><br/>
+	<img style1="height:491px;" src="loading.gif" data-url="b.jpg" class="img-lazyload" /><br/>
+	<img style1="height:491px;" src="loading.gif" data-url="c.jpg" class="img-lazyload" /><br/>
+	<img style1="height:491px;" src="loading.gif" data-url="d.jpg" class="img-lazyload" /><br/>
+</body>
+</html>

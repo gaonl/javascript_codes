@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Form Test</title>
+		<script src="snack.js"></script>
+		<script>
+			var panel = null;
+			var snack = null;
+			var food = null;
+
+			window.onload = function(){
+				panel = new gnl_Panel(10,"black",1000,500);
+				panel.rander("panel");
+				
+				snack = new gnl_Snack();
+				snack.setPanel(panel);
+				snack.initBody();
+				snack.display();
+				
+				document.onkeydown = function(event){
+					//80 p       90 z
+					var keyCode = event.keyCode;
+					if(keyCode == 80 && (snack.turnUp() || snack.turnRight())){}
+					if(keyCode == 90 && (snack.turnDown() || snack.turnLeft())){}
+					event.preventDefault();
+					return false
+				};
+				
+				food = new gnl_Food("#FF0000");
+				food.setPanel(panel);
+				food.randomFood();
+				food.display();
+				
+				var interval = setInterval("snack.move(food);",50);
+				snack.setDeadFunction(function(){
+					clearInterval(interval);
+				});
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="panel">
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
